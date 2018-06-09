@@ -1,0 +1,9 @@
+import requests
+def liyanting():
+    url=['http://www.17k.com/book/2801193.html','http://www.17k.com/book/2767246.html/']
+    file='C:/Users/lenovo/Desktop/html'
+    with open('C:/Users/lenovo/Desktop/html','a',encoding='utf-8')as f:
+        for i in range(2):
+            header = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36'}
+            response = requests.post('http://www.17k.com/book/2801193.html',headers = header)
+            f.write(response.text)
