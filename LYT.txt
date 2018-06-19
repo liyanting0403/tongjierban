@@ -1,0 +1,17 @@
+﻿import requests
+res = requests.get('http://www.17k.com/list/2822387.html')
+tree = etree.HTML(res.text)
+b_list = tree.xpath('//html/body/div[@class="Main List"]/dl[@class="Volume"]/dd/a')
+for i in b_list:
+    href = i.xpath('./@href')[0]
+    a='http://www.17k.com/'
+    b=href
+    html=a+b
+    import re
+    content=requests.get(html).text
+    red=re.compile('&#12288;&#12288;(.*?)<br /><br />')
+    result=re.findall(red,content)
+    print(result)
+    a=str(result)
+    with open('C:/Users/lenovo/Desktop/er.txt', 'a',encoding='utf-8')as f:
+        f.write(a)
