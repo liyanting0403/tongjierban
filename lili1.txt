@@ -1,0 +1,12 @@
+﻿import requests
+from lxml import etree
+s = 0
+q = requests.get('http://op.hanhande.com/shtml/meitu.shtml')
+tree = etree.HTML(q.text)
+book = tree.xpath('//*[@id="main"]/div[1]/div[2]/ul/li')
+for i in book:
+    hrl = i.xpath('./a/img/@src')[0]
+    s=s+1
+    q = requests.get(hrl).content
+    with open('C:\\Users\\lenovo\\Desktop\\lalala\\text'+str(s)+'.jpg','wb')as f:
+        f.write(q)
