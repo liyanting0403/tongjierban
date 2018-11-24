@@ -1,0 +1,95 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| haha               |
+| hello              |
+| hello_mysql        |
+| information_schema |
+| lala               |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+8 rows in set (0.06 sec)
+
+mysql> use haha;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++----------------+
+| Tables_in_haha |
++----------------+
+| countries      |
+| departments    |
+| dept           |
+| emp            |
+| employees      |
+| haha           |
+| job_history    |
+| jobs           |
+| locations      |
+| nianfen        |
+| regions        |
+| salgrade       |
+| shopping       |
+| year           |
++----------------+
+14 rows in set (0.00 sec)
+
+mysql> create table movie( id int primary key not null unique auto_increment, name varchar(40), year int(10) not null, dirc varchar(45), score int not null); 
+Query OK, 0 rows affected (0.29 sec)
+
+mysql> insert into movie(name,year,dirc,score) values
+    -> ("honghaixingdong",2018,"linchaoxiao",8),
+    -> ("zhuoyaoji",2017,"xuchengyi",7),
+    -> ("xiuxiudetiequan",2016,"songyang",6),
+    -> ("xialuotefannao",2014,"yanfei",9);
+Query OK, 4 rows affected (0.07 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from movie;
++----+-----------------+------+-------------+-------+
+| id | name            | year | dirc        | score |
++----+-----------------+------+-------------+-------+
+|  1 | honghaixingdong | 2018 | linchaoxiao |     8 |
+|  2 | zhuoyaoji       | 2017 | xuchengyi   |     7 |
+|  3 | xiuxiudetiequan | 2016 | songyang    |     6 |
+|  4 | xialuotefannao  | 2014 | yanfei      |     9 |
++----+-----------------+------+-------------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select * from movie where name like "zhuoyaoji%";
++----+-----------+------+-----------+-------+
+| id | name      | year | dirc      | score |
++----+-----------+------+-----------+-------+
+|  2 | zhuoyaoji | 2017 | xuchengyi |     7 |
++----+-----------+------+-----------+-------+
+1 row in set (0.00 sec)
+
+mysql> select * from movie where dirc like "yanfei%";
++----+----------------+------+--------+-------+
+| id | name           | year | dirc   | score |
++----+----------------+------+--------+-------+
+|  4 | xialuotefannao | 2014 | yanfei |     9 |
++----+----------------+------+--------+-------+
+1 row in set (0.00 sec)
+
+mysql> select * from movie where year like "2014";
++----+----------------+------+--------+-------+
+| id | name           | year | dirc   | score |
++----+----------------+------+--------+-------+
+|  4 | xialuotefannao | 2014 | yanfei |     9 |
++----+----------------+------+--------+-------+
+1 row in set (0.00 sec)
+
+mysql> select * from movie where score>8;
++----+----------------+------+--------+-------+
+| id | name           | year | dirc   | score |
++----+----------------+------+--------+-------+
+|  4 | xialuotefannao | 2014 | yanfei |     9 |
++----+----------------+------+--------+-------+
+1 row in set (0.00 sec)
+

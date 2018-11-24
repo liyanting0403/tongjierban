@@ -1,0 +1,76 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| haha               |
+| hello              |
+| hello_mysql        |
+| information_schema |
+| lala               |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> use lala;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++----------------+
+| Tables_in_lala |
++----------------+
+| countries      |
+| departments    |
+| employees      |
+| job_history    |
+| jobs           |
+| locations      |
+| regions        |
+| shopping       |
++----------------+
+8 rows in set (0.00 sec)
+mysql> create table collecting(id int not null primary key unique auto_increment,name varchar(100));
+Query OK, 0 rows affected (0.25 sec)
+mysql> insert into collecting(name) values ('book'),('foods'),('movie'),('close');
+Query OK, 4 rows affected (0.05 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from collecting;
++----+-------+
+| id | name  |
++----+-------+
+|  1 | book  |
+|  2 | foods |
+|  3 | movie |
+|  4 | close |
++----+-------+
+4 rows in set (0.00 sec)
+mysql> insert into collecting(name) values ('shoes');
+Query OK, 1 row affected (0.07 sec)
+mysql> select * from collecting;
++----+-------+
+| id | name  |
++----+-------+
+|  1 | book  |
+|  2 | foods |
+|  3 | movie |
+|  4 | close |
+|  5 | shoes |
++----+-------+
+5 rows in set (0.00 sec) 
+mysql> delete from collecting  where id=5;
+Query OK, 1 row affected (0.11 sec)
+mysql> select * from collecting;
++----+-------+
+| id | name  |
++----+-------+
+|  1 | book  |
+|  2 | foods |
+|  3 | movie |
+|  4 | close |
++----+-------+
+4 rows in set (0.00 sec)
+
