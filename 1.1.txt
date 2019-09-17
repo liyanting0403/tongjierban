@@ -1,0 +1,11 @@
+def wendu():
+    c = int(input("ÇëÊäÈëÉãÊÏÎÂ¶È£º "))
+    f = (9 / 5) * c + 32
+    print(f)
+def start():
+    wendu()
+start()
+
+´ğ°¸£º
+ÇëÊäÈëÉãÊÏÎÂ¶È£º 45
+113.0
